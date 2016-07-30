@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /manager/
+Disallow: /assets/components/
+Disallow: /core/
+Disallow: /mgr/
+Disallow: /connectors/
+Disallow: /index.php
+Disallow: /service-pages/
+Disallow: *?
+Host: my-tutor.cz
+Sitemap: http://my-tutor.cz/sitemap.xml

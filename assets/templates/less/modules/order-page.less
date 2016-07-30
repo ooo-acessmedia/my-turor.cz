@@ -1,0 +1,81 @@
+@titleTextColor: black;
+@borderColor: black;
+
+.order-page {
+  width: 100%;
+
+  .order-page-title {
+    font-size: 18px;
+    color: @titleTextColor;
+    text-transform: uppercase;
+    border-bottom: 1px dashed @borderColor;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .order-page-form {
+    display: flex;
+    justify-content: space-between;
+
+    .order-page-block {
+      margin-right: 50px;
+
+      .form-group {
+        margin-bottom: 20px;
+
+        label {
+          font-size: 17px;
+          text-transform: uppercase;
+        }
+
+        input {
+          min-width: 250px;
+          max-width: 450px;
+          width: auto;
+          font-size: 17px;
+          padding: 5px 10px;
+          text-transform: uppercase;
+        }
+
+        textarea {
+          min-width: 250px;
+          max-width: 450px;
+          width: auto;
+          font-size: 17px;
+          padding: 5px 10px;
+          height: 120px;
+          text-transform: uppercase;
+          resize: none;
+        }
+
+        button {
+          border: 1px solid black;
+          background: none;
+          padding: 5px 10px;
+          font-size: 18px;
+          text-transform: uppercase;
+          margin-top: 40px;
+
+          &:hover {
+            background: #000;
+            color: white;
+          }
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.order-page-success-title {
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.order-page-payments-deliveries {
+  display: none;
+}

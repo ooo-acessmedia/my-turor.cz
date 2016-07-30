@@ -1,0 +1,117 @@
+@titleTextColor: black;
+@borderColor: black;
+
+.page-cart {
+  margin-bottom: 50px;
+}
+
+.page-cart-block {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column;
+
+  .page-cart-block-title {
+    font-size: 18px;
+    color: @titleTextColor;
+    text-transform: uppercase;
+    border-bottom: 1px dashed @borderColor;
+    margin-bottom: 20px;
+  }
+
+}
+
+.page-cart-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-cart-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  padding-top: 10px;
+
+  > div {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 120px;
+
+    &:first-child {
+      margin-right: 25px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+.page-cart-product {
+
+  > div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px dashed @borderColor;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .image {
+    border: 4px solid #eee;
+  }
+
+  .title {
+    width: 35%;
+
+    a {
+      text-decoration: none;
+      font-size: 25px;
+    }
+  }
+
+  .count {
+
+    input {
+      text-align: center;
+      width: 40px;
+    }
+
+    button {
+      display: none;
+    }
+  }
+
+  .price {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .remove {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    button {
+      border: none;
+      background: none;
+      font-size: 14px;
+    }
+  }
+}
+
+.page-cart-buttons {
+  button {
+    border: 1px solid black;
+    background: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #000;
+      color: white;
+    }
+  }
+}

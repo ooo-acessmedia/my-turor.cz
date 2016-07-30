@@ -1,0 +1,231 @@
+// Form Variables
+
+@formFadeBg: rgba(235, 235, 235, 0.8);
+@formBg: white;
+@formFontColor: #1091D5;
+@formErrorColor: brown;
+@formWidth: 500px;
+@formPadding: 70px 50px 50px 50px;
+@formMarginTop: 100px;
+@formRadius: 0px;
+@formFontSize: 14px;
+@formFont: Arial, Helvetica, sans-serif;
+
+@inputsPlaceholderColor: lighten(@formFontColor, 30%);
+@inputsErrorColor: lighten(@formErrorColor, 30%);
+@inputsPadding: 10px 10px;
+@inputsBorder: 2px solid @formFontColor;
+@inputsErrorBorder: 2px solid @formErrorColor;
+@inputsMargin: 20px;
+
+// Form Mixins
+
+.form-placeholders {
+  &::-webkit-input-placeholder {
+    color: @inputsPlaceholderColor;
+  }
+  &::-moz-placeholder {
+    color: @inputsPlaceholderColor;
+  }
+  &:-moz-placeholder {
+    color: @inputsPlaceholderColor;
+  }
+  &:-ms-input-placeholder {
+    color: @inputsPlaceholderColor;
+  }
+}
+
+.form-error-placeholders {
+  &::-webkit-input-placeholder {
+    color: @inputsErrorColor;
+  }
+  &::-moz-placeholder {
+    color: @inputsErrorColor;
+  }
+  &:-moz-placeholder {
+    color: @inputsErrorColor;
+  }
+  &:-ms-input-placeholder {
+    color: @inputsErrorColor;
+  }
+}
+
+// Form Styles
+
+.form-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: @formFadeBg;
+  display: none;
+  z-index: 999;
+
+}
+
+.form-popup-wrap {
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+
+}
+
+.form-popup {
+  position: relative;
+  margin-top: @formMarginTop;
+  display: none;
+  z-index: 9999;
+  background: @formBg;
+  width: @formWidth;
+  border-radius: @formRadius;
+  font-size: @formFontSize;
+
+  form {
+    padding: @formPadding;
+
+    input, textarea, button {
+      background: none;
+      border: @inputsBorder;
+      color: @formFontColor;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: @inputsPadding;
+      margin-bottom: @inputsMargin;
+      .form-placeholders;
+
+      &.error {
+        color: @formErrorColor;
+        border: @inputsErrorBorder;
+        .form-error-placeholders;
+      }
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .group-title {
+      color: @formFontColor;
+      text-align: center;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    select {
+      border: 1px solid @formFontColor;
+      color: @formFontColor;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: @inputsPadding;
+      margin-bottom: @inputsMargin;
+      background: @formBg;
+    }
+
+    button {
+      display: inline-block;
+      width: auto;
+      padding: 10px 25px;
+
+      &:hover {
+        background: @formFontColor;
+        color: @formBg;
+      }
+    }
+
+    .controls {
+      text-align: center;
+    }
+  }
+}
+
+.form-popup-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: @formFontColor;
+
+    &:hover {
+      transform-origin: 50% 50%;
+      animation: formCloseIconAnim;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+    }
+  }
+}
+
+// Form jGrowl
+
+#jGrowl {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  display: none;
+  justify-content: center;
+  z-index: 99;
+  align-items: flex-start;
+  padding-top: 10%;
+}
+
+#jGrowl .jGrowl-notification {
+  opacity: 1;
+  background: @formBg !important;
+  width: @formWidth;
+  height: auto;
+  padding: 50px;
+  border-radius: @formRadius;
+  margin: 0;
+  box-sizing: border-box;
+
+  &:first-child {
+    display: none;
+  }
+
+  &:last-child {
+    flex-grow: 1;
+  }
+}
+
+#jGrowl .jGrowl-close {
+  display: none;
+}
+
+#jGrowl .jGrowl-notification.af-message-error {
+  width: 100%;
+  border-top: @inputsBorder;
+  border-bottom: @inputsBorder;
+  align-self: flex-end;
+}
+
+#jGrowl .jGrowl-notification .jGrowl-message {
+  text-align: center;
+  font-size: @formFontSize+2;
+  color: @formFontColor;
+  text-transform: uppercase;
+  font-family: @formFont;
+  font-weight: bold;
+  margin: 0;
+}

@@ -1,0 +1,69 @@
+/*States*/
+
+.is-visible {
+  display: block !important;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.is-flex {
+  display: flex !important;
+}
+
+.is-fixed {
+  position: fixed !important;
+}
+
+.is-absolute {
+  position: absolute !important;
+}
+
+// Animations
+
+.form-fade-out {
+  animation: formHide;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.form-fade-in {
+  animation: formShow;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes formCloseIconAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+
+  }
+}
+
+@keyframes formHide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes formShow {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*States*/
+
