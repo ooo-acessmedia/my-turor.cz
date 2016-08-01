@@ -124,8 +124,21 @@
       font-size: 14px;
     }
 
+    .date-group {
+      display: flex;
+      justify-content: space-between;
+
+      > * {
+        width: 30%;
+      }
+
+      input, select {
+        width: 100%;
+      }
+    }
+
     select {
-      border: 1px solid @formFontColor;
+      border: @inputsBorder;
       color: @formFontColor;
       text-align: center;
       text-transform: uppercase;
@@ -218,6 +231,13 @@
   border-top: @inputsBorder;
   border-bottom: @inputsBorder;
   align-self: flex-end;
+}
+
+#jGrowl .jGrowl-notification.af-message-success {
+  width: @formWidth;
+  border: @inputsBorder;
+  align-self: flex-start;
+  flex-grow: 0;
 }
 
 #jGrowl .jGrowl-notification .jGrowl-message {

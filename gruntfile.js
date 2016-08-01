@@ -195,9 +195,20 @@ module.exports = function (grunt) {
                 }
             },
 
-            ts: {
-                files: ['assets/templates/typescript/main.ts'],
-                tasks: ['typescript', 'ftp-deploy:js'],
+            //ts: {
+            //    files: ['assets/templates/typescript/main.ts'],
+            //    tasks: ['typescript', 'ftp-deploy:js'],
+            //    options: {
+            //        spawn: false,
+            //        livereload: {
+            //            host: liveReloadFolder
+            //        }
+            //    }
+            //},
+
+            js: {
+                files: ['assets/templates/js/main.js'],
+                tasks: ['ftp-deploy:js'],
                 options: {
                     spawn: false,
                     livereload: {
