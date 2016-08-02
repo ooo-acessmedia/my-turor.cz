@@ -1,0 +1,75 @@
+.teacher-callout {
+  display: flex;
+  justify-content: space-between;
+  background: #ff7a5b;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  position: relative;
+  margin-bottom: 45px;
+
+  > .left-block {
+    > .title {
+      font-size: 22px;
+      color: #000;
+      text-transform: uppercase;
+      font-family: SourceSansPro-Semibold;
+      margin-bottom: 7px;
+    }
+
+    > .form {
+
+      form {
+        display: flex;
+        justify-content: space-between;
+
+
+
+        input {
+          border-radius: 10px;
+          border: none;
+          width: 190px;
+          height: 28px;
+          padding-left: 15px;
+          padding-right: 15px;
+          font-family: SourceSansPro-Light;
+          font-size: 18px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.31) inset;
+
+          &.error {
+            border: 2px solid red;
+          }
+        }
+      }
+
+      button {
+        position: absolute;
+        right: 27px;
+        top: 25px;
+        background: url("../../img/teacher-callout-button-bg.png") no-repeat;
+        width: 54px;
+        height: 53px;
+        border: none;
+      }
+
+    }
+  }
+
+  > .right-block {
+    padding-right: 92px;
+
+    > .title {
+      font-size: 22px;
+      color: white;
+      text-transform: uppercase;
+      font-family: SourceSansPro-Semibold;
+    }
+
+    > .text {
+      color: white;
+      font-size: 18px;
+      font-family: SourceSansPro-Light;
+    }
+  }
+}

@@ -1,0 +1,205 @@
+.teacher-item {
+  border: 1px solid #e9e9e9;
+  padding-left: 27px;
+  padding-top: 29px;
+  padding-right: 27px;
+  padding-bottom: 29px;
+
+
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+
+  > .left-block {
+    flex-grow: 1;
+
+    > .main {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+
+      > .image {
+        margin-right: 15px;
+      }
+
+      > .info {
+        padding-right: 25px;
+        > .title {
+          font-size: 30px;
+          color: #000;
+          font-family: SourceSansPro-Semibold;
+          margin-bottom: 15px;
+        }
+
+        > .description {
+          font-size: 18px;
+          color: #000;
+          font-family: SourceSansPro-Regular;
+          margin-bottom: 10px;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          flex-flow: row wrap;
+          font-size: 16px;
+          color: #000;
+          font-family: SourceSansPro-Semibold;
+
+          li {
+            padding-left: 32px;
+            background: url("../../img/teacher-list-item-bg.png") no-repeat left center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+          }
+        }
+      }
+    }
+
+    > .subjects {
+      margin-bottom: 20px;
+
+      > .title {
+        font-size: 18px;
+        color: #000;
+        font-family: SourceSansPro-Semibold;
+        padding-left: 40px;
+        margin-bottom: 23px;
+        background: url("../../img/subjects-title-bg.png") no-repeat left center;
+      }
+
+      > .text {
+        color: #000;
+        font-size: 18px;
+        font-family: SourceSansPro-Light;
+      }
+    }
+
+    > .education {
+      > .title {
+        font-size: 18px;
+        color: #000;
+        font-family: SourceSansPro-Semibold;
+        padding-left: 40px;
+        margin-bottom: 23px;
+        background: url("../../img/education-title-bg.png") no-repeat left center;
+      }
+
+      > .text {
+        color: #000;
+        font-size: 18px;
+        font-family: SourceSansPro-Light;
+      }
+    }
+  }
+
+  > .right-block {
+    width: 270px;
+    flex-shrink: 0;
+
+    .teacher-requst {
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      font-family: SourceSansPro-Semibold;
+      text-transform: uppercase;
+      background: url("../../img/teacher-reauest-button-bg.png");
+      border-radius: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      cursor: pointer;
+      margin-bottom: 17px;
+    }
+
+    .teacher-price {
+      margin-bottom: 20px;
+
+      > .title {
+        font-size: 18px;
+        color: #000;
+        font-family: SourceSansPro-Semibold;
+        padding-left: 40px;
+        margin-bottom: 15px;
+        background: url("../../img/teacher-price-title-bg.png") no-repeat left center;
+      }
+    }
+
+    .teacher-location {
+      margin-bottom: 20px;
+
+      > .title {
+        font-size: 18px;
+        color: #000;
+        font-family: SourceSansPro-Semibold;
+        padding-left: 40px;
+        margin-bottom: 15px;
+        background: url("../../img/teacher-location-title-bg.png") no-repeat left center;
+
+      }
+
+      > .content {
+        font-size: 17px;
+        color: #000;
+        font-family: SourceSansPro-Regular;
+        padding-left: 30px;
+        background: url("../../img/teacher-element-item-bg.png") no-repeat left center;
+      }
+    }
+
+    .teacher-drive {
+      margin-bottom: 20px;
+      > .title {
+        font-size: 18px;
+        color: #000;
+        font-family: SourceSansPro-Semibold;
+        padding-left: 40px;
+        margin-bottom: 15px;
+        background: url("../../img/teacher-drive-title-bg.png") no-repeat left center;
+      }
+
+      > .content {
+        padding-left: 30px;
+        margin-bottom: 20px;
+        font-size: 17px;
+        color: #000;
+        font-family: SourceSansPro-Regular;
+        background: url("../../img/teacher-element-item-bg.png") no-repeat left center;
+      }
+    }
+  }
+}
+
+.teacher-price-item {
+  padding-left: 30px;
+  margin-bottom: 20px;
+  background: url("../../img/teacher-element-item-bg.png") no-repeat left center;
+
+  > .subject {
+    font-size: 15px;
+    color: #646464;
+    font-family: SourceSansPro-Semibold;
+
+  }
+
+  > .price {
+    font-size: 16px;
+    color: #000;
+    font-family: SourceSansPro-Semibold;
+  }
+
+  > .time {
+    font-size: 16px;
+    color: #000;
+    font-family: SourceSansPro-Semibold;
+  }
+
+  > .suff {
+    font-size: 16px;
+    color: #000;
+    font-family: SourceSansPro-Light;
+  }
+}
+
