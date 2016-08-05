@@ -1,14 +1,39 @@
 .about-block-wrap {
-  background: url("../../img/about-block-wrap-bg.png") no-repeat;
-  background-size: 100% 100%;
+  background: url("../../img/about-wrap-bg.png") no-repeat;
+  background-size: auto 100%;
   margin-top: 3px;
   margin-bottom: 3px;
+  position: relative;
+  height: 420px;
+
 }
 
 .about-block {
   padding-top: 35px;
   padding-bottom: 35px;
-  padding-left: 415px;
+  padding-left: 40px;
+  padding-right: 20%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  background: rgba(0, 0, 0, 0.6);
+  max-height: 100%;
+  height: 100%;
+
+  @media screen and (max-width: 1725px) {
+    padding-right: 10%;
+  }
+
+  @media screen and (max-width: 1400px) {
+    padding-right: 1%;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 650px;
+    position: static;
+  }
+
 
   > .title {
     font-size: 46px;
@@ -22,8 +47,12 @@
   }
 
   > .text {
-    font-size: 24px;
+    font-size: 23px;
     color: white;
     font-family: SourceSansPro-Light;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 22px;
+    }
   }
 }
