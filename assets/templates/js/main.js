@@ -1,5 +1,5 @@
 ;
-(function ($) {
+(function ($, window, myTutor) {
 
     'use strict';
 
@@ -74,6 +74,21 @@
     $('#year').val(currentYear);
     $('#month').find('option').eq(currentMonth).attr('selected', 'selected');
 
+    // date and datetime pickers
+    $(document).ready(function () {
+        $('.date').datepicker({
+            format: "yyyy-mm-dd",
+            language: myTutor.language.cultureKey,
+            pickerPosition: "bottom-left",
+            autoclose: true
+        });
+        $('.datetime').datetimepicker({
+            format: "yyyy-mm-dd hh:ii:ss",
+            language: myTutor.language.cultureKey,
+            pickerPosition: "bottom-left",
+            autoclose: true
+        });
+    });
 
-})(jQuery);
+})(jQuery, window, window.myTutor);
 
