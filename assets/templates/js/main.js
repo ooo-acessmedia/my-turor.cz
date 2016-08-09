@@ -88,6 +88,48 @@
             pickerPosition: "bottom-left",
             autoclose: true
         });
+        $('.clockpicker').clockpicker({
+            autoclose: true
+        });
+        $('.ajax-image-uploader').each(function (i, elem) {
+            $(elem).find('.ajax-image-file').on('change', function () {
+                $(elem).find('.ajax-image-name').val($(this).val().split("/").pop().split("\\").pop());
+                var files = this.files;
+                var data = new FormData();
+                data.append('action', 'upload/photo');
+                $.each(files, function(key, value){
+                    data.append(key, value);
+                });
+             
+                // Отправляем запрос
+             
+                $.ajax({
+                    url: '/ajax',
+                    type: 'POST',
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false, // Не обрабатываем файлы (Don't process the files)
+                    contentType: false, // Так jQuery скажет серверу что это строковой запрос
+                    success: function( respond, textStatus, jqXHR ){
+                        if( typeof respond.error === 'undefined' ){
+                            if(respond instanceof Array || respond.length == 1) {
+                                $(elem).find('.ajax-image-value').val(respond[0]);
+                                console.log($(elem).attr('id'));
+                                console.log($(elem).find('img[data-uploader="#' + $(elem).attr('id') + '"]'));
+                                $('img[data-uploader="#' + $(elem).attr('id') + '"]').attr('src', respond[0]);
+                            }
+                        }
+                        else{
+                            console.log('ОШИБКИ ОТВЕТА сервера: ' + respond.error );
+                        }
+                    },
+                    error: function( jqXHR, textStatus, errorThrown ){
+                        console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+                    }
+                });
+            });
+        });
     });
 
 })(jQuery, window, window.myTutor);
