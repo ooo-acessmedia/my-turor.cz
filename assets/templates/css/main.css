@@ -2838,7 +2838,7 @@ body {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 0!important;
+  padding: 0 !important;
 }
 .container {
   width: 1100px;
@@ -2958,7 +2958,7 @@ body {
 }
 .top-menu-list .level-01 {
   position: relative;
-  z-index: 99;
+  z-index: 999;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -3979,6 +3979,14 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.teacher-filters {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 .teacher-filters > form {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3996,7 +4004,8 @@ body {
 }
 .teacher-filters > form fieldset:after {
   position: absolute;
-  right: 7px;
+  right: 3px;
+  border-radius: 50%;
   top: 12px;
   z-index: 99;
   display: block;
@@ -4005,6 +4014,9 @@ body {
   height: 14px;
   background: url("../img/filters-select-arrow-bg.png") no-repeat;
   pointer-events: none;
+}
+.teacher-filters > form fieldset select {
+  -moz-appearance: none;
 }
 .teacher-filters > form button {
   font-size: 18px;
@@ -4035,6 +4047,31 @@ body {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.41) inset;
   border-radius: 10px;
   padding-left: 15px;
+}
+.mini-search {
+  margin-left: 25px;
+  position: relative;
+}
+.mini-search input[type="text"] {
+  width: 210px;
+  height: 42px;
+  border: none;
+  font-size: 18px;
+  color: #646464;
+  font-family: SourceSansPro-Semibold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.41) inset;
+  border-radius: 10px;
+  padding-left: 15px;
+}
+.mini-search input[type="submit"] {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  background: url("../img/mini-search-button-bg.png") no-repeat;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-size: 100% 100%;
 }
 /*Modules*/
 /*States*/
