@@ -3297,6 +3297,8 @@ body {
 .text-content > .title {
   font-size: 22px;
   text-transform: uppercase;
+  font-weight: normal;
+  margin-bottom: 20px;
 }
 .text-content > .block {
   font-size: 16px;

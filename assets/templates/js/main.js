@@ -17,6 +17,18 @@
         autoplay: true
     });
 
+    // Делаем не кликабельными 2 пункта верхнего меню
+
+    var $topMenu = $('.top-menu-list');
+
+    var linkList = $topMenu.find('> li').eq(1).find('> a').add($topMenu.find('> li').eq(2).find('> a'));
+
+    linkList.each(function () {
+        $(this).on('click', function (e) {
+            e.preventDefault();
+        });
+    });
+
     // Адативная всплывающая форма
 
     var $activateButton = $('.contacts-callout'),
@@ -98,12 +110,12 @@
                 var files = this.files;
                 var data = new FormData();
                 data.append('action', 'upload/photo');
-                $.each(files, function(key, value){
+                $.each(files, function (key, value) {
                     data.append(key, value);
                 });
-             
+
                 // Отправляем запрос
-             
+
                 $.ajax({
                     url: '/ajax',
                     type: 'POST',
@@ -113,21 +125,21 @@
                     async: false,
                     processData: false, // Не обрабатываем файлы (Don't process the files)
                     contentType: false, // Так jQuery скажет серверу что это строковой запрос
-                    success: function( respond, textStatus, jqXHR ){
-                        if( typeof respond.error === 'undefined' ){
-                            if(respond instanceof Array || respond.length == 1) {
+                    success: function (respond, textStatus, jqXHR) {
+                        if (typeof respond.error === 'undefined') {
+                            if (respond instanceof Array || respond.length == 1) {
                                 $(elem).find('.ajax-image-value').val(respond[0]);
                                 console.log($(elem).attr('id'));
                                 console.log($(elem).find('img[data-uploader="#' + $(elem).attr('id') + '"]'));
                                 $('img[data-uploader="#' + $(elem).attr('id') + '"]').attr('src', respond[0]);
                             }
                         }
-                        else{
-                            console.log('ОШИБКИ ОТВЕТА сервера: ' + respond.error );
+                        else {
+                            console.log('ОШИБКИ ОТВЕТА сервера: ' + respond.error);
                         }
                     },
-                    error: function( jqXHR, textStatus, errorThrown ){
-                        console.log('ОШИБКИ AJAX запроса: ' + textStatus );
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log('ОШИБКИ AJAX запроса: ' + textStatus);
                     }
                 });
             });
@@ -139,10 +151,10 @@
             var resultContain = $(this).attr('data-result-contain');
             var gets = {};
             var newUrl = location.href.split('?');
-            if(newUrl.length > 1) {
+            if (newUrl.length > 1) {
                 newUrl = newUrl[0];
                 newUrl[1].split('&').forEach(function (g) {
-                    if(g) {
+                    if (g) {
                         g = g.split('=');
                         gets[g[0]] = g.length > 1 ? g[1] : "";
                     }
@@ -152,15 +164,15 @@
                 var val = $(inp).val();
                 var name = $(inp).attr('name');
                 delete gets[name];
-                if(val) {
+                if (val) {
                     gets[name] = val;
                 }
             });
             var getstr = "";
-            for(var k in gets) {
+            for (var k in gets) {
                 getstr += "&" + k + "=" + gets[k];
             }
-            if(getstr !== "") {
+            if (getstr !== "") {
                 newUrl += "?" + getstr.substr(1);
             }
             $.ajax({
@@ -177,61 +189,61 @@
         });
 
         $("[data-toggle='tooltip']").tooltip();
-        
+
         $(document).on('click', '.action-remove', function () {
             var removeItem = $(this).attr('data-remove');
             $(removeItem).remove();
             return false;
         });
-        
+
         $(document).on('click', '.action-remove-all', function () {
             var removeItem = $(this).attr('data-remove');
             var conditionItem = $(this).attr('data-condition');
             $(removeItem).each(function (i, elem) {
-                if($(elem).find(conditionItem).length) {
+                if ($(elem).find(conditionItem).length) {
                     $(elem).remove();
                 }
             });
         });
-        
+
         $(document).on('click', '.action-select-all', function () {
             var selectItems = $(this).attr('data-select-all');
-            if($(this).is(':checked')) {
+            if ($(this).is(':checked')) {
                 $(selectItems).attr('checked', true);
             } else {
                 $(selectItems).removeAttr('checked');
             }
         });
-        
+
         $(document).on('click', '.action-add', function () {
             var id = 0;
             $('.service-item').each(function (i, elem) {
                 var _id = $(elem).attr('id').split('-').pop();
-                if($.isNumeric(_id) && _id > id) id = _id;
+                if ($.isNumeric(_id) && _id > id) id = _id;
             });
             id++;
             var $row = $(myTutor.chunks.teacherUserPanel.service)
                 .attr('id', 'service-' + id)
                 .appendTo($('#service-list'));
-            $row.find('input[name="services_id[]"]').attr('name', 'services_id[new_' + id +']').val('new_' + id);
-            $row.find('input[name="services_name[]"]').attr('name', 'services_name[new_' + id +']').val('Новая услуга');
-            $row.find('input[name="services_price[]"]').attr('name', 'services_price[new_' + id +']').val('0');
-            $row.find('input[name="services_active[]"]').attr('name', 'services_active[new_' + id +']').val('1');
+            $row.find('input[name="services_id[]"]').attr('name', 'services_id[new_' + id + ']').val('new_' + id);
+            $row.find('input[name="services_name[]"]').attr('name', 'services_name[new_' + id + ']').val('Новая услуга');
+            $row.find('input[name="services_price[]"]').attr('name', 'services_price[new_' + id + ']').val('0');
+            $row.find('input[name="services_active[]"]').attr('name', 'services_active[new_' + id + ']').val('1');
             $row.find('.action-remove').attr('data-remove', '#service-' + id);
             return false;
         });
 
-        if(location.hash) {
+        if (location.hash) {
             $('a[href="' + location.hash + '"]').tab('show');
-            if(location.hash == '#learner-active' || location.hash == '#learner-wait') {
+            if (location.hash == '#learner-active' || location.hash == '#learner-wait') {
                 $('a[href="#my-learner"]').tab('show');
             }
         }
-            
+
         $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function () {
             history.pushState(null, "", (location.href.split('#'))[0] + $(this).attr('href'));
         });
-        
+
         $(document).on('submit', '.ajaxFormNonResponce', function () {
             $.ajax({
                 url: $(this).attr('action'),
