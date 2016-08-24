@@ -264,6 +264,13 @@
             });
             return false;
         });
+
+        $(document).on('click', '.toggler', function (e) {
+            var selector = $(this).attr('data-toggle');
+            console.log(selector);
+            $(selector).toggle();
+
+        });
     });
 
 })(jQuery, window, window.myTutor);
