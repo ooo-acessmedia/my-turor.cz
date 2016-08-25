@@ -29,6 +29,12 @@
         });
     });
 
+    /* Разворачивающейся меню третьего левела */
+    $(document).on('click', '.top-menu-list .level-02.root > a', function (e) {
+        $(this).next().slideToggle(300);
+        e.preventDefault();
+    });
+
     // Адативная всплывающая форма
 
     var $activateButton = $('.contacts-callout'),

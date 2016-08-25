@@ -2,6 +2,7 @@
   margin-top: 3px;
   margin-bottom: 3px;
   background: url("../../img/subject-menu-wrap-bg.png");
+  padding: 15px 0;
 }
 
 .subject-menu {
@@ -13,11 +14,17 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-content: flex-end;
 
   .level-01 {
 
     flex-grow: 1;
+    position: relative;
 
     > a {
       display: block;
@@ -26,9 +33,43 @@
       font-size: 24px;
       color: #000;
       font-family: SourceSansPro-Semibold;
-      padding-top: 25px;
-      padding-bottom: 25px;
+      padding: 10px 10px;
       text-align: center;
+    }
+
+    > ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      background: white;
+      z-index: 100;
+      left: 0;
+      width: 100%;
+    }
+
+    &:hover {
+      > ul {
+        display: block;
+      }
+    }
+  }
+
+  .level-02 {
+
+    width: 100%;
+
+    > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: #000;
+      font-size: 18px;
     }
   }
 }
