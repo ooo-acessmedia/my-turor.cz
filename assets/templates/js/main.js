@@ -135,8 +135,6 @@
                         if (typeof respond.error === 'undefined') {
                             if (respond instanceof Array || respond.length == 1) {
                                 $(elem).find('.ajax-image-value').val(respond[0]);
-                                console.log($(elem).attr('id'));
-                                console.log($(elem).find('img[data-uploader="#' + $(elem).attr('id') + '"]'));
                                 $('img[data-uploader="#' + $(elem).attr('id') + '"]').attr('src', respond[0]);
                             }
                         }
@@ -239,6 +237,23 @@
             return false;
         });
 
+        $(document).on('click', '.action-add-education', function () {
+            var id = 0;
+            $('.teacher-education-item').each(function (i, elem) {
+                var _id = $(elem).attr('id').split('-').pop();
+                if ($.isNumeric(_id) && _id > id) id = _id;
+            });
+            id++;
+            var $row = $(myTutor.chunks.teacherUserPanel.education)
+                .attr('id', 'teacher-education-' + id)
+                .appendTo($('#education-list'));
+            $row.find('input[name="education[][institution]"]').attr('name', 'education[' + id + '][institution]').val('');
+            $row.find('input[name="education[][chair]"]').attr('name', 'education[' + id + '][chair]').val('');
+            $row.find('input[name="education[][direction]"]').attr('name', 'education[' + id + '][direction]').val('');
+            $row.find('.action-remove').attr('data-remove', '#teacher-education-' + id);
+            return false;
+        });
+
         if (location.hash) {
             $('a[href="' + location.hash + '"]').tab('show');
             if (location.hash == '#learner-active' || location.hash == '#learner-wait') {
@@ -273,9 +288,58 @@
 
         $(document).on('click', '.toggler', function (e) {
             var selector = $(this).attr('data-toggle');
-            console.log(selector);
             $(selector).toggle();
 
+        });
+
+        $(document).on('submit', '#learner form', function () {
+            if(!window.__register_conpidition_accepted__) {
+                $('#learner-condition').modal('show');
+                return false;
+            }
+        });
+
+        $(document).on('submit', '#teacher form', function () {
+            if(!window.__register_conpidition_accepted__) {
+                $('#teacher-condition').modal('show');
+                return false;
+            }
+        });
+
+        $(document).on('click', '#learner-condition .btn-primary', function () {
+            window.__register_conpidition_accepted__ = true;
+            $('#learner-condition').modal('hide');
+            $('#learner form input[type="submit"]').trigger('click');
+        });
+
+        $(document).on('click', '#teacher-condition .btn-primary', function () {
+            window.__register_conpidition_accepted__ = true;
+            $('#teacher-condition').modal('hide');
+            $('#teacher form input[type="submit"]').trigger('click');
+        });
+
+        var inputMoveCursorToEnd = function (input) {
+            input.focus();
+            input.selectionStart = input.value.length;
+        }
+
+        $(document).on('click', 'input[name="phone"]', function () {
+            inputMoveCursorToEnd($(this)[0]);
+        });
+        $(document).on('keypress', 'input[name="phone"]', function () {
+            inputMoveCursorToEnd($(this)[0]);
+        });
+        $(document).on('keyup', 'input[name="phone"]', function () {
+            inputMoveCursorToEnd($(this)[0]);
+        });
+        $(document).on('change', 'input[name="phone"]', function () {
+            inputMoveCursorToEnd($(this)[0]);
+        });
+        $(document).on('keydown', 'input[name="phone"]', function (e) {
+            inputMoveCursorToEnd($(this)[0]);
+            if(e.keyCode == 8 && $(this).val().length <= 4) {
+                return false;
+            }
         });
     });
 
