@@ -14,7 +14,9 @@
         mouseDrag: false,
         nav: true,
         navText: ['', ''],
-        autoplay: true
+        autoplay: true,
+        loop: true,
+        rewindNav: true
     });
 
     // Делаем не кликабельными 2 пункта верхнего меню
