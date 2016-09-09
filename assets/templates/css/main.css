@@ -3826,6 +3826,7 @@ body.lang-cz * {
   font-family: SourceSansPro-Light;
   font-size: 18px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.31) inset;
+  margin-right: 6px;
 }
 .teacher-callout > .left-block > .form form input.error {
   border: 2px solid red;
